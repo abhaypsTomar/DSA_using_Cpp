@@ -33,7 +33,20 @@ void UpperCaseCh(char ch[],int size){
 		index++;
 	}
 }
-
+bool palindrome(char ch[],int size){
+	int i=0;
+	int j =size-1;
+	while(i<=j){
+		if(ch[i]==ch[j]){
+			i++;
+			j--;
+		}
+		else{
+			return false;
+		}
+	}
+	return true;
+}
 void replace(char ch[],int size){
 	int index = 0;
 	while(ch[index]!='\0'){
@@ -47,20 +60,25 @@ int main(){
 	char ch[100];
 	int size =10;
 	cin.getline(ch,100);
-	if(swapCh(ch,10)==ch){
-		cout << "YESSSSS";
-	}else{
-		cout<< "NOOOOOOOOO";
+	int len = findLen(ch,size);
+	bool ans = palindrome(ch,len);
+	if(ans){
+		cout << "true, palindrome" ;
 	}
+	else{
+		cout << "false, no palindrome";
+	}
+//	swapCh(ch,10);
+	
 //	replace(ch,100);
 //	UpperCaseCh(ch,10);
 
 	
-	
+//	cout << ch;
 //	cin.getline(ch,100);
 
 	
-//	int len = findLen(ch,size);
+	
 //	
 //	cout << len;
 //	cout << strlen(ch);
